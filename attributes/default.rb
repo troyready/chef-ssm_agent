@@ -25,6 +25,7 @@ default['ssm_agent'].tap do |config|
   config['package']['path'] = ::File.join(
     Chef::Config['file_cache_path'],
     value_for_platform_family('rhel' => 'amazon-ssm-agent.rpm',
+                              'amazon' => 'amazon-ssm-agent.rpm',
                               'debian' => 'amazon-ssm-agent.deb')
   )
 
