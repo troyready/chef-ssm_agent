@@ -1,7 +1,7 @@
 default['ssm_agent'].tap do |config|
   # Attempt to detect the current region from Ohai
   # @since 0.1.0
-  aws_az = node.fetch('ec2', {}).fetch('placement_availability_zone')
+  aws_az = node.fetch('ec2', {}).fetch('placement_availability_zone', nil)
   config['region'] = aws_az ? aws_az[0..-2] : 'us-east-1'
 
   # Version of the package to download and install
